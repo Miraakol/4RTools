@@ -47,6 +47,7 @@ namespace _4RTools.Forms
             this.txtHPpct.Text = this.autopot.hpPercent.ToString();
             this.txtSPpct.Text = this.autopot.spPercent.ToString();
             this.txtAutopotDelay.Text = this.autopot.delay.ToString();
+            this.cbPauseOnInput.Checked = this.autopot.pauseOnInput;
 
 
             txtHpKey.KeyDown += new System.Windows.Forms.KeyEventHandler(FormUtils.OnKeyDown);
@@ -55,8 +56,7 @@ namespace _4RTools.Forms
             txtSPKey.KeyDown += new System.Windows.Forms.KeyEventHandler(FormUtils.OnKeyDown);
             txtSPKey.KeyPress += new KeyPressEventHandler(FormUtils.OnKeyPress);
             txtSPKey.TextChanged += new EventHandler(this.onSpTextChange);
-
-
+            cbPauseOnInput.CheckedChanged += new EventHandler(this.cbPauseOnInputCheckedChanged);
         }
 
         private void onHpTextChange(object sender, EventArgs e)
@@ -102,6 +102,12 @@ namespace _4RTools.Forms
                 ProfileSingleton.SetConfiguration(this.autopot);
             }
             catch (Exception) { }
+        }
+
+        private void cbPauseOnInputCheckedChanged(object sender, EventArgs e)
+        {
+            this.autopot.pauseOnInput = this.cbPauseOnInput.Checked;
+            ProfileSingleton.SetConfiguration(this.autopot);
         }
     }
 }

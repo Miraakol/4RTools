@@ -21,6 +21,7 @@ namespace _4RTools.Model
         public int spPercent { get; set; }
         public int delay { get; set; } = 15;
         public int delayYgg { get; set; } = 50;
+        public bool pauseOnInput { get; set; } = false;
 
         public string actionName { get; set; }
         private _4RThread thread;
@@ -88,9 +89,23 @@ namespace _4RTools.Model
             Keys k = (Keys)Enum.Parse(typeof(Keys), key.ToString());
             if ((k != Keys.None) && !Keyboard.IsKeyDown(Key.LeftAlt) && !Keyboard.IsKeyDown(Key.RightAlt))
             {
+                if (this.pauseOnInput && IsAnyKeyPressed()) return;
+
                 Interop.PostMessage(ClientSingleton.GetClient().process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, k, 0); // keydown
                 Interop.PostMessage(ClientSingleton.GetClient().process.MainWindowHandle, Constants.WM_KEYUP_MSG_ID, k, 0); // keyup
             }
+        }
+
+        private bool IsAnyKeyPressed()
+        {
+            foreach (Key k in Enum.GetValues(typeof(Key)))
+            {
+                if (k != Key.None && Keyboard.IsKeyDown(k))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void Stop()

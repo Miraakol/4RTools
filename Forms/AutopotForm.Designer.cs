@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSPpct = new System.Windows.Forms.NumericUpDown();
+            this.cbPauseOnInput = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtHPpct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHP)).BeginInit();
@@ -167,7 +168,18 @@
             this.txtSPpct.Size = new System.Drawing.Size(44, 23);
             this.txtSPpct.TabIndex = 40;
             this.txtSPpct.ValueChanged += new System.EventHandler(this.txtSPpctTextChanged);
-            // 
+            //
+            // cbPauseOnInput
+            //
+            this.cbPauseOnInput.AutoSize = true;
+            this.cbPauseOnInput.Location = new System.Drawing.Point(106, 113);
+            this.cbPauseOnInput.Name = "cbPauseOnInput";
+            this.cbPauseOnInput.Size = new System.Drawing.Size(103, 17);
+            this.cbPauseOnInput.TabIndex = 47;
+            this.cbPauseOnInput.Text = "Pause on Input";
+            this.cbPauseOnInput.UseVisualStyleBackColor = true;
+            this.cbPauseOnInput.CheckedChanged += new System.EventHandler(this.cbPauseOnInputCheckedChanged);
+            //
             // AutopotForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,6 +199,7 @@
             this.Controls.Add(this.txtAutopotDelay);
             this.Controls.Add(this.picBoxSP);
             this.Controls.Add(this.picBoxHP);
+            this.Controls.Add(this.cbPauseOnInput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AutopotForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -214,5 +227,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown txtSPpct;
+        private System.Windows.Forms.CheckBox cbPauseOnInput;
     }
 }
