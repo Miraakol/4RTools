@@ -28,3 +28,7 @@
 ### Fixed
 - On change profile not start threads anymore.
 - App don't crash anymore with a invalid json profile.
+
+## [v1.3.0] - 2025-05-10
+### Added
+- Autopot option to pause when another key is pressed, preventing hotkey conflicts

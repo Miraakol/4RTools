@@ -22,6 +22,7 @@ This project was created using Visual Studio 2022, just open `4RTools.sln` in Vi
 ## Features
 - [x] ON/OFF Button (with shortcut key)
 - [x] Autopot
+- Pause on Input option to avoid blocking other hotkeys
 - [x] Autobuff status
 - [x] Manage Profiles
 - [x] AHK Spammer
